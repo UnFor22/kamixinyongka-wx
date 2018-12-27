@@ -80,7 +80,45 @@
         </div>
         <!-- 推荐信息内容 -->
         <div class="articleList">
-          
+          <div @click="tocardraidersdetails('中信首刷礼怎么领取 中信银行信用卡首刷礼',34)">
+            <div class="content">
+              <div class="content_left">
+                <p>中信首刷礼怎么领取 中信银行信用卡首刷礼</p>
+                <p>中信银行为信用卡首刷用户提供了丰富的首刷礼，那么这个中信首刷礼怎么领取？ </p>
+                <span>2018-06-08</span>
+                <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 9845</span>
+              </div>
+              <!-- <div class="content_right">
+                <img src="http://image.sudaizhijia.com/production/20171229/bank/20171229171255-146.png" mode="widthFix" alt="">
+              </div> -->
+            </div>
+          </div>
+          <div @click="tocardraidersdetails('光大信用卡首刷哪里领 光大信用卡首刷礼',35)">
+            <div class="content">
+              <div class="content_left">
+                <p>光大信用卡首刷哪里领 光大信用卡首刷礼</p>
+                <p>活动期间，通过网络渠道在线申请光大信用卡指定卡种的新客户，活动期间首刷不限金额即有机会获赠50元刷卡金。</p>
+                <span>2018-06-08</span>
+                <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 9845</span>
+              </div>
+              <!-- <div class="content_right">
+                <img src="http://image.sudaizhijia.com/production/20171229/bank/20171229171255-146.png" mode="widthFix" alt="">
+              </div> -->
+            </div>
+          </div>
+          <div @click="tocardraidersdetails('浦发开卡礼在哪里领取 浦发银行信用卡首刷礼',36)">
+            <div class="content">
+              <div class="content_left">
+                <p>浦发开卡礼在哪里领取 浦发银行信用卡首刷礼</p>
+                <p>浦发银行信用卡首刷礼品是什么？</p>
+                <span>2018-06-08</span>
+                <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 9845</span>
+              </div>
+              <!-- <div class="content_right">
+                <img src="http://image.sudaizhijia.com/production/20171229/bank/20171229171255-146.png" mode="widthFix" alt="">
+              </div> -->
+            </div>
+          </div>
           <!--“爱购全球”境外畅购折扣享不停 返现高达16%-->
           <div @click="tocardraidersdetails('“爱购全球”境外畅购折扣享不停 返现高达16%',14)">
             <div class="content">
@@ -105,33 +143,6 @@
               </div>
               <!-- <div class="content_right">
                 <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1530103741&di=f9639e4e2b06ca0eedd9d4680fd99b32&src=http://imgsrc.baidu.com/forum/pic/item/7e3e6709c93d70cf4f46d499f8dcd100bba12be1.jpg" mode="widthFix" alt="">
-              </div> -->
-            </div>
-          </div>
-
-          <div @click="tocardraidersdetails('招商首刷礼怎么领 招商信用卡首刷礼技巧',16)">
-            <div class="content">
-              <div class="content_left">
-                <p>招商首刷礼怎么领 招商信用卡首刷礼技巧</p>
-                <!-- <p>招商银行作为四大银行之一，目前申请人数也越来越多，尽管如此</p> -->
-                <span>2018-06-08</span>
-                <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 4846</span>
-              </div>
-              <!-- <div class="content_right">
-                <img src="http://image.sudaizhijia.com/production/20171012/bank/20171012201435-573.png" mode="widthFix" alt="">
-              </div> -->
-            </div>
-          </div>
-
-          <div @click="tocardraidersdetails('哪家信用卡首刷礼好 各大银行信用卡首刷礼',17)">
-            <div class="content">
-              <div class="content_left">
-                <p>哪家信用卡首刷礼好 各大银行信用卡首刷礼</p>
-                <span>2018-06-08</span>
-                <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 5721</span>
-              </div>
-              <!-- <div class="content_right">
-                <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530113879491&di=5d05f10bd9592aafbb385086f3c39d36&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fdesign%2F00%2F07%2F85%2F23%2F59316ca9789ee.png" mode="widthFix" alt="">
               </div> -->
             </div>
           </div>
@@ -412,19 +423,19 @@
       <!-- 功能导航 -->
       <div class="funList">   
         <div v-if="!SHOW" @click="toOnbehalf" style="display: inline-block;">
-            <img src='../../assets/daihuan@2x.png' alt="">
+            <img src='https://ioskamidownload.oss-cn-qingdao.aliyuncs.com/miniprogram/samll_daihuan.png' alt="">
             <p style="font-size: 14px; color: #333;">代还</p>
         </div>  
         <div class="funListMiddle" @click="toprogresscheck" style="display: inline-block;">
-            <img src='../../assets/chaxun.png' alt="">
+            <img src='https://ioskamidownload.oss-cn-qingdao.aliyuncs.com/miniprogram/samll_chaxun.png' alt="">
             <p style="font-size: 14px; color: #333;">进度查询</p>
         </div>
         <div @click="toyongkajingyan" style="display: inline-block;">
-          <img src='../../assets/yangka.png' alt="">
+          <img src='https://ioskamidownload.oss-cn-qingdao.aliyuncs.com/miniprogram/samll_yangka.png' alt="">
           <p style="font-size: 14px; color: #333;">用卡经验</p>
         </div>
         <div class="funListMiddle" @click="toyanjiuwanka" style="display: inline-block;">
-          <img src='../../assets/jihuo.png' alt="">
+          <img src='https://ioskamidownload.oss-cn-qingdao.aliyuncs.com/miniprogram/samll_wanka.png' alt="">
           <p style="font-size: 14px; color: #333;">研究玩卡</p>
         </div>
         <!-- <div @click="toGonglue" style="display: inline-block;">
@@ -432,7 +443,7 @@
             <p style="font-size: 14px; color: #333;">养卡攻略</p>
         </div> -->
         <!-- <div v-if="isCredit==true" class="funListMiddle" @click="toProgresscheck" style="display: inline-block;">
-            <img src='../../assets/quxian.png' alt="">
+            <img src='https://ioskamidownload.oss-cn-qingdao.aliyuncs.com/miniprogram/samll_quxian.png' alt="">
             <img src='../../assets/hot.gif' alt="" class="hotGif">
             <p style="font-size: 14px; color: #333;">取现</p>
         </div> -->
@@ -452,7 +463,7 @@
         <div class="hotBanks">
           <div class="hotBanks_header">
             <p class="theme_p" style="color: #363636;"><span class="leftBorder"></span>热门</p>          
-            <span @click="tofiltercard" style="color: #7370FF;font-size: 12px;">全部卡片<img src="../../assets/cardCenterMore.png" alt="" style="width: 12rpx; height:22rpx; vertical-align: middle; margin-left: 6rpx;margin-top: -2rpx;"></span>
+            <span @click="tofiltercard" style="color: #7370FF;font-size: 14px;">全部卡片<img src="../../assets/cardCenterMore.png" alt="" style="width: 12rpx; height:22rpx; vertical-align: middle; margin-left: 6rpx;margin-top: -2rpx;"></span>
           </div>
           <div class="hotBanks_content">
             <!-- loading图 -->
@@ -1899,14 +1910,18 @@
         });
       },  
       // 第一次加载数据
-      getFirst(){
+      getFirst(option){
+        if(option){
+
+        } else {
+          this.pageList = [] 
+          this.loadPageList();
+        }
         this.showGD = false
         this.showAll = false
         this.showList = []
         // 页面展示时，清空热门 卡数据，并重新请求
         this.isLoading_hotCard = false
-        this.pageList = []
-        this.loadPageList();
         this.word= '更多'
         this.isLoading_hotBank = true
         this.imgUrl= require('../../assets/gengduo@2x.png')
@@ -2022,7 +2037,7 @@
           key: 'time',
           success:function(res){
             // console.log('获取时间storage',res)
-            if(xianziatime - res.data.time > 10) {
+            if(xianziatime - res.data.time > 1200) {
               // console.log('超过二十分钟，重新请求')
               wx.setStorage({
                 key: 'time',
@@ -2054,15 +2069,14 @@
           // console.log('调用一次',data)
           this.endtime = data.end
           wx.setStorage({
-              key: 'ENDTIME',
-              data: {
-                "time": this.endtime
-              }
-            })
-          
+            key: 'ENDTIME',
+            data: {
+              "time": this.endtime
+            }
+          })
 
           this.SHOWText = data.content  
-          if(this.SHOWText === 'abcdefg1'){
+          if(this.SHOWText === 'abcdefg'){
             wx.setStorage({
               key: 'SHOW',
               data: {
@@ -2072,7 +2086,7 @@
             this.SHOW = true
           } else {
             that.SHOW = false
-            this.getFirst()
+            this.getFirst(1)
             wx.setStorage({
               key: 'SHOW',
               data: {
@@ -2131,7 +2145,6 @@
       // 页面展示时，清空热门 卡数据，并重新请求
       this.isLoading_hotCard = false
       this.pageList = []
-      // this.loadPageList();
       let that = this
         
       this.showmengban = false  
@@ -2314,7 +2327,6 @@
         this.searchCondition.token = md5(md5((new Date()).valueOf() + '@kami2018')); 
         // 获取热门  卡的信息
         getHotCard(this.searchCondition).then(data => {    
-          // console.log(data)  
           if(data.result.code == 10000){
             for(let j = 0; j< data.data.length; j++){
               this.pageList.push(data.data[j]);

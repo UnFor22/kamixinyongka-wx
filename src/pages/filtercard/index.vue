@@ -38,10 +38,10 @@
       </div>
 
       <!--遮罩层-->
-      <div class="overlayer" v-show="isShow_bank" @click="isShow_bank = !isShow_bank"></div>
-      <div class="overlayer" v-show="isShow_fee" @click="isShow_fee = !isShow_fee"></div>
-      <div class="overlayer" v-show="isShow_grade" @click="isShow_grade = !isShow_grade"></div>
-      <div class="overlayer" v-show="isShow_class" @click="isShow_class = !isShow_class"></div>
+      <div class="overlayer" v-show="isShow_bank" @click="clickoutside"></div>
+      <div class="overlayer" v-show="isShow_fee" @click="clickoutside"></div>
+      <div class="overlayer" v-show="isShow_grade" @click="clickoutside"></div>
+      <div class="overlayer" v-show="isShow_class" @click="clickoutside"></div>
 
       <!--筛选出来的数据展示-->
       <div class="content">
@@ -270,6 +270,7 @@
         this.filterSearch.page = parseInt(1);
         this.filterSearch.token = md5(md5(this.filterSearch.bid + this.filterSearch.yp + this.filterSearch.level + this.filterSearch.type + this.filterSearch.page + 'kami@2018'));  //生成token
         getFilterHotBank(this.filterSearch).then(data => {
+          console.log(data)
           if(data.result.code == 10000){
             this.showPagelist = true
             this.cardTips=[]
@@ -678,6 +679,7 @@
       /*加title*/
       /*top 90px*/
       ul{
+        position: fixed;
         /*margin-top 49px*/
         padding-bottom: 30rpx;
         padding-left: 4%;
@@ -874,9 +876,9 @@
             }
               
             .tips{
-              padding: 4rpx 10rpx;
+              padding: 4rpx 0;
               color: #9a9a9a;
-              border: 1px solid #bdbdbd;
+              border: 1px solid #fff;
               border-radius: 6px;
               font-size: 11px;
               /*font-family pingFangSC-Medium*/
