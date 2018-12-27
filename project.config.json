@@ -5,12 +5,13 @@
 		"es6": false,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false
 	},
 	"miniprogramRoot": "dist/wx/",
 	"compileType": "miniprogram",
 	"appid": "wx73ee2d2406a9d30a",
-	"projectname": "xinyongka-wx",
+	"projectname": "xinyongka-wx-1227",
 	"condition": {
 		"search": {
 			"current": -1,

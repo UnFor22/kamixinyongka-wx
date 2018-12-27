@@ -46,7 +46,7 @@
     },
 
     onLoad () {     
-      //加载银行列表进度数据
+      //加载 '列表进度数据
       getActivation().then(data => {
         if(data.result.code == 10000){
           this.pageList = data.data;
@@ -65,7 +65,7 @@
     //页面设置转发功能
     onShareAppMessage: function (res) {
       return {
-        title: `办信用卡，我们是认真的！`,
+        title: `论效率，我们是最快的！`,
         imageUrl: 'http://download.pcuion.com/app2_0/eduda.png',
         path: '/pages/index/index'
       }

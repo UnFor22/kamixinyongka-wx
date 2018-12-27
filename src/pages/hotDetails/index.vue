@@ -3,7 +3,7 @@
 <!--      <nav class="navTitle"><img @click="backHistory()" src="../../assets/fanhui@2x.png">{{this.bankname}}</nav>-->
     <div class="hotdetails">
     
-      <!--银行卡头部-->
+      <!--头部-->
       <div class="header">
         <img :src=logo alt="">
         <div>
@@ -12,7 +12,7 @@
         </div>
       </div>
 
-      <!--对应的银行卡-->
+      <!--对应的-->
       <div class="content">
           <ul>
             <li v-for="(item, index) in pageList" :key="index" @click="tokefu(item.creditname,item.crediturl)">
@@ -23,11 +23,11 @@
                   <p>{{item.creditcontent}}</p>
                   <div class="itemTipsCss" v-for="(itemTips, i) in cardTips[index]" :key="i">{{itemTips}}</div>
                   <div class="cardNum">
-                    <span><span style="color:#ff5b3d">{{item.cardcount}}</span>人申请</span>
+                    <span><span style="color:#ff5b3d">{{item.cardcount}}</span>人拥有</span>
                   </div>
                 </div>
               </div>
-              <div class="button"><a style="color: #ff5b3d">立即申请</a></div>
+              <div class="button"><a style="color: #ff5b3d">立即查看</a></div>
             </li>
           </ul>
       </div>
@@ -56,8 +56,8 @@ export default {
         w:'',
       },
       pageList: [],
-      cardTips:[], //热门信用卡小标签
-      credittips:[], //热门信用卡小便签未处理
+      cardTips:[], //小标签
+      credittips:[], //小便签未处理
       bottomAllLoaded: false, //是否可以上拉属性，false可以上拉，true为禁止上拉，就是不让往上划加载数据了
       // scrollMode: "auto", //移动端弹性滚动效果，touch为弹性滚动，auto是非弹性滚动
       wrapperHeight: 0,
@@ -71,14 +71,14 @@ export default {
       regList:{
         mob:'', //手机号、
         chan:'', //渠道号、
-        cid:'', //信用卡ID、
-        cname:'', //信用卡名称、
+        cid:'', //、
+        cname:'', //
       },
       operationList:{
-          type:3,                 //办卡点击(h5),
+          type:3,                 //点击(h5),
           mobile:'',                 //手机号、
           channelSign:'',         //渠道号、渠道标识(H5)
-          typeId:'',              //相应操作数据id（对应数据的id不存在时可以不传）==>信用卡ID
+          typeId:'',              //相应操作数据id（对应数据的id不存在时可以不传）==>ID
           address:'',	            //链接地址（app不需要；H5需要）
       },
       query:{
@@ -96,7 +96,7 @@ export default {
   //页面设置转发功能
   onShareAppMessage: function (res) {
     return {
-      title: `论下卡成功率，我没服过谁！
+      title: `论成功率，我没服过谁！
 `,
       imageUrl: 'http://download.pcuion.com/app2_0/songxianj.png',
       path: '/pages/index/index'
@@ -166,7 +166,7 @@ export default {
             // console.log('this.cardTips333',this.cardTips)
           }else{
             this.pageList = this.pageList;
-            // 为信用卡的tips赋值
+            // 为 的tips赋值
             for(let i=0;i<this.pageList.length;i++){
               this.credittips.push(this.pageList[i].credittips) 
               this.cardTips.push(this.credittips[i].split(','))
@@ -186,7 +186,7 @@ export default {
         // Toast({message:'异常',duration: 500});
       });
     },
-    //统计银行申请
+    //统请
     // hotdetailsNum(index){
     //       this.regList.mob=this.$route.query.mob;
     //       this.regList.chan=this.$route.query.utm_source;

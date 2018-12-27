@@ -6,7 +6,10 @@
         <!--选择项-->
         <div class="selectItem">
           <div class="inputWrapper" @click.stop="hideBankOther" @click="showAllB=!showAllB">
-            <input disabled="disabled" style=" font-size:16px;color: #363636; background: #fff" type="text" readonly placeholder="银行" :value="selectedBank" :class="{invalidB: this.invalidB}"><img :src=imgUrlB alt="">
+            <input disabled="disabled" style=" font-size:16px;color: #363636; background: #fff" type="text" readonly placeholder="全部" :value="selectedBank" :class="{invalidB: this.invalidB}"><img :src=imgUrlB alt="">
+          </div>
+          <div class="inputWrapper" @click.stop="hideClassOther" @click="showAllC=!showAllC">
+            <input disabled="disabled" style="font-size:16px;color: #363636; background: #fff" type="text" readonly placeholder="用途" :value="selectedClass" :class="{invalidC: this.invalidC}"><img :src=imgUrlC alt="">
           </div>
           <div class="inputWrapper" @click.stop="hideFeeOther" @click="showAllF=!showAllF">
             <input disabled="disabled" style="font-size:16px;color: #363636; background: #fff" type="text" readonly placeholder="年费" :value="selectedFee" :class="{invalidF: this.invalidF}"><img :src=imgUrlF alt="">
@@ -14,9 +17,7 @@
           <div class="inputWrapper" @click.stop="hideGradeOther" @click="showAllG=!showAllG">
             <input disabled="disabled" style="font-size:16px;color: #363636; background: #fff" type="text" readonly placeholder="等级" :value="selectedGrade" :class="{invalidG: this.invalidG}"><img :src=imgUrlG alt="">
           </div>
-          <div class="inputWrapper" @click.stop="hideClassOther" @click="showAllC=!showAllC">
-            <input disabled="disabled" style="font-size:16px;color: #363636; background: #fff" type="text" readonly placeholder="分类" :value="selectedClass" :class="{invalidC: this.invalidC}"><img :src=imgUrlC alt="">
-          </div>
+          
         </div>
       </div>
 
@@ -44,7 +45,7 @@
 
       <!--筛选出来的数据展示-->
       <div class="content">
-        <div :bottom-method="loadBottom" :bottom-all-loaded="bottomAllLoaded" :auto-fill="false" ref="loadmore" :bottomPullText='bottomText' :bottomDropText="bottomDropText">
+        <div v-if="showPagelist" :bottom-method="loadBottom" :bottom-all-loaded="bottomAllLoaded" :auto-fill="false" ref="loadmore" :bottomPullText='bottomText' :bottomDropText="bottomDropText">
           <ul>
             <li v-for="(item, index) in pageList" @click="tokefu(item.creditname,item.crediturl)" :key="index">
               <div class="leftBox" style="display: inline-block;width: 100%;">
@@ -56,14 +57,17 @@
                     <div class="tips">{{itemTips}}</div>
                   </section>
                   <div class="cardNum">
-                    <span><span style="color:#ff5b3d">{{item.cardcount}}</span>人申请</span>
+                    <span><span style="color:#ff5b3d">{{item.cardcount}}</span>人拥有</span>
                   </div>
                 </div>
               </div>  
-              <div class="rightBox"><span style="color: #ff5b3d">立即申请</span></div>
+              <div class="rightBox"><span style="color: #ff5b3d">立即查看</span></div>
 
             </li>
           </ul>
+        </div>
+        <div v-else id="noCard">
+          <p>{{noPagelist}}</p>
         </div>
       </div>
 
@@ -80,72 +84,75 @@
       return {
         cardUrl: '',
 
-        //银行选择项列表
+        //选择项列表
         options_bank: [],
-        //年费选择项列表
+        //选择项列表
         options_fee: [
           {label: '全部', value: '0'},
-          {label: '免首年，交易免', value: '1'},
+          {label: '免首年,交易免', value: '1'},
           {label: '终身免年费', value: '2'},
           {label: '有年费', value: '3'},
         ],
-        cardTips:[], //热门信用卡小标签
-        credittips:[], //热门信用卡小便签未处理
+        cardTips:[], //热门小标签
+        credittips:[], //热门小便签未处理
         //等级选择项列表
         options_grade: [
           {label: '全部等级', value: 0},
-          {label: '普卡', value: 1},
-          {label: '金卡', value: 2},
-          {label: '白金卡', value: 3},
+          {label: '普通', value: 1},
+          {label: '黄金', value: 2},
+          {label: '白金', value: 3},
         ],
         //类别选择项列表
         options_class: [
           {label: '全部', value: 0},
           {label: '大额度', value: 1},
-          {label: '新手办卡', value: 2},
+          {label: '新手选择', value: 2},
           {label: '审批快', value: 3},
-          {label: '办卡有礼', value: 4},
-          {label: '商超购物', value: 5},
+          {label: '使用有礼', value: 4},
+          {label: '超市购物', value: 5},
           {label: '商旅', value: 6},
           {label: '航空', value: 7},
-          {label: '境外', value: 8},
+          {label: '境外消费', value: 8},
           {label: '有车一族', value: 9},
-          {label: '女人', value: 10},
-          {label: '卡通游戏', value: 11},
-          {label: '联名卡', value: 12},
+          {label: '女性专属', value: 10},
+          {label: '风格主题', value: 11},
+          {label: '联名', value: 12},
           {label: '其它', value: 13},
+          {label: '标准', value: 14},
         ],
 
-        showBank: false,  //是否显示银行对应的选项
-        showFee: false, //是否显示年费对应的选项
+        showBank: false,  //是否显示 对应的选项
+        showFee: false, //是否显示对应的选项
         showGrade: false, //是否显示等级对应的选项
         showClass: false, //是否显示类别对应的选项
 
-        selectedBank: '', //初始化银行选项input的value值
-        selectedFee: '',  //初始化年费选项input的value值
+        selectedBank: '', //初始化 选项input的value值
+        selectedFee: '',  //初始化 选项input的value值
         selectedGrade: '',  //初始化等级选项input的value值
         selectedClass: '',  //初始化类别选项input的value值
 
         filterSearch: {
-          bid: 0,		  //银行ID 如果选择全部银行就传0
-          yp: '0',		  //信用卡年费，如果选择全部年费就传0
-          level: '0', 	//信用卡级别，如果选择全部级别就传0
-          type: '0',		//信用卡类型，如果选择全部类型就传0
+          bid: 0,		  //如果选择全部 就传0
+          yp: '0',		  //如果选择全部 就传0
+          level: '0', 	//如果选择全部级别就传0
+          type: '0',		//，如果选择全部类型就传0
           page: 0,		//当前页数，默认传1,每页显示10条，接口默认返回20条
           token: 0, 	//校验值，校验规则参数拼接: “bid+yp+level+type+page+kami@2018”进行两次MD5
         },
 
         pageList: [],
+        showPagelist: true, // 是否显示列表，用于筛选不到使用
+        noPagelist: '无此类卡，小主请放宽条件再试试哦', // 筛选不到时提示语
         bottomAllLoaded: false, //是否可以上拉属性，false可以上拉，true为禁止上拉，就是不让往上划加载数据了
         wrapperHeight: 0,
         bottomText: '上拉加载更多',
         bottomDropText: '释放更新',
 
-        isShow_bank: false, //初始化银行的遮罩
+        isShow_bank: false, //初始化的遮罩
         isShow_fee: false,
         isShow_grade: false,
         isShow_class: false,
-        isActiveB: -1,  //初始化银行对应选中某一项时的样式
+        isActiveB: -1,  //初始化对应选中某一项时的样式
         isActiveF: -1,
         isActiveG: -1,
         isActiveC: -1,
@@ -153,7 +160,7 @@
         invalidF: false,
         invalidG: false,
         invalidC: false,
-        showAllB: false,  //是否显示银行对应某一项的自定义样式
+        showAllB: false,  //是否显示 对应某一项的自定义样式
         showAllF: false,
         showAllG: false,
         showAllC: false,
@@ -166,15 +173,15 @@
         regList:{
           mob:'', //手机号、
           chan:'', //渠道号、
-          cid:'', //信用卡ID、
-          cname:'', //信用卡名称、
+          cid:'', //ID、
+          cname:'', //名称、
         },
         operationList:{      //记录用户操作接口列表
-            type:3,                 //办卡点击(h5),
+            type:3,                 // 点击(h5),
             mobile:'',                 //手机号、
             channelSign:'',         //渠道号、渠道标识(H5)
-            typeId:'',              //相应操作数据id（对应数据的id不存在时可以不传）==>信用卡ID
-            address:'',	            //链接地址（app不需要；H5需要）
+            typeId:'',              //相应操作数据id（对应数据的id不存在时可以不传）==>ID
+            address:'',	            // 地址（app不需要；H5需要）
         },
 
       }
@@ -182,9 +189,9 @@
     onLoad() {
        let bank = {
         bankid: 0,
-        bankname: "全部银行",
-        bankabbr: "全部银行",
-        bankcontent: "全部银行",
+        bankname: "全部",
+        bankabbr: "全部",
+        bankcontent: "全部",
         banklogo: "https://api.51datakey.com/h5/logo/bank/gs-2x.png",
         banktips: "最热",
         bankurl: "https://www.baidu.com/",
@@ -195,7 +202,7 @@
         weight: "44"
       };
 
-      //加载热门银行时所需数据
+      //加载热门 时所需数据
       getHotBankInfoList().then(data => {
         if(data.result.code == 10000){
           data.data.unshift(bank);
@@ -213,7 +220,7 @@
     //页面设置转发功能
     onShareAppMessage: function (res) {
       return {
-        title: `论下卡成功率，我没服过谁！`,
+        title: `论成功率，我没服过谁！`,
         imageUrl: 'http://download.pcuion.com/app2_0/songxianj.png',
         path: '/pages/index/index'
       }
@@ -264,6 +271,7 @@
         this.filterSearch.token = md5(md5(this.filterSearch.bid + this.filterSearch.yp + this.filterSearch.level + this.filterSearch.type + this.filterSearch.page + 'kami@2018'));  //生成token
         getFilterHotBank(this.filterSearch).then(data => {
           if(data.result.code == 10000){
+            this.showPagelist = true
             this.cardTips=[]
             this.credittips=[]
             this.pageList = data.data;
@@ -274,9 +282,10 @@
             // console.log('选择或初次加载pageList',this.pageList)
             // console.log('选择或初次加载的credittips',this.credittips)            
             // console.log('选择或初次加载的cardTips',this.cardTips)            
-          }else if(data.result.code == 99996) {
-            this.bottomText = '已经到底了';
-            this.bottomDropText = '已经到底了';
+          }else if(data.result.msg == '暂无数据') {
+            // console.log('暂无数据')
+            this.pageList = []
+            this.showPagelist = false
           }
           else {
             // Toast({message:'正在加载中。。。',duration: 500});
@@ -299,27 +308,27 @@
             url: `/pages/link/main?title=${title}`
         });
       },
-      //银行选择列
+      //选择列
       chooseBank(label, value, index) {
         this.isShow_bank = false;
         this.clickoutside();
         this.isActiveB = index;
         this.isActiveBC = index;
         if (label !== this.selectedBank) {
-          this.selectedBank = label;
+          this.selectedBank = label.substring(0,2);
           this.filterSearch.bid = value;
           this.filterSearch.page = 0;
           this.loadPageList();
         }
       },
-      //年费选择列
+      //选择列
       chooseFee(label, value, index) {
         this.isShow_fee = false;
         this.clickoutside();
         this.isActiveF = index;
         this.isActiveFC = index;
         if (label !== this.selectedFee) {
-          this.selectedFee = label;
+          this.selectedFee = label.substring(0,2);
           if(value == 0) {
             this.filterSearch.yp = '0';
             this.filterSearch.page = 0;
@@ -332,14 +341,14 @@
         }
 
       },
-      //等级选择列
+      //选择列
       chooseGrade(label, value, index) {
         this.isShow_grade = false;
         this.clickoutside();
         this.isActiveG = index;
         this.isActiveGC = index;
         if (label !== this.selectedGrade) {
-          this.selectedGrade = label;
+          this.selectedGrade = label.substring(0,2);
           if(value == 0) {
             this.filterSearch.level = '0';
             this.filterSearch.page = 0;
@@ -358,7 +367,7 @@
         this.isActiveC = index;
         this.isActiveCC = index;
         if (label !== this.selectedClass) {
-          this.selectedClass = label;
+          this.selectedClass = label.substring(0,2);
           if(value == 0) {
             this.filterSearch.type = '0';
             this.filterSearch.page = 0;
@@ -370,7 +379,7 @@
           }
         }
       },
-      //隐藏银行之外的选择项
+      //隐藏之外的选择项
       hideBankOther() {
         if(!this.isShow_bank) {
           this.isHide = false;
@@ -395,7 +404,7 @@
         this.showAllC = false;
 
       },
-      //隐藏年费之外的选择项
+      //隐藏之外的选择项
       hideFeeOther() {
         if(!this.isShow_fee) {
           this.isHide = false;
@@ -488,7 +497,7 @@
         this.showAllG = false;
         this.showAllC = false;
       },
-      // //统计立即申请点击
+      // //统计立即 点击
       // hotdetailsNum(index){
       //     this.regList.mob=this.$route.query.mob;
       //     this.regList.chan=this.$route.query.utm_source;
@@ -681,10 +690,10 @@
           justify-content: space-between;
           border:-2rpx(rgb(232, 232, 232));
           background: #fff;
-          border:2rpx solid #bab7b7;
+          border:2rpx solid #f5f5f5;
           border-radius:20px;
           /*padding 5px 35px*/
-          color: #bab7b7;
+          color: #666;
           /*font-family pingFangSC-Medium*/
           font-size: 15px;
           height: 60rpx;
@@ -902,4 +911,26 @@
       }      
     }  
   }    
+  #noCard {
+  position: fixed;
+  top: 0;
+  left:0;
+  right:0;
+  bottom:0;
+  // padding-top 48%;
+  // width: 100%;
+  // height: 100%;
+  // text-align : center;
+  // // align-items : center;
+   
+  p{
+    margin-top: 80%;
+    text-align : center;
+    // height: 100%;
+    // margin auto 0;
+    line-height: 1;
+    font-size: 14px;
+    color: #666;
+  }
+}
 </style>

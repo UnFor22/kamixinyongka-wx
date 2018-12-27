@@ -238,11 +238,11 @@ export const getTopicSelect = params => {
   //统计立即购买creditid&bankid
   export const getContent = params => {
     /*console.log(params);*/
-    return fly.post(`${baseURL}/api.php/CreditPage/getcontent?test=2`).then(res => res.data);
+    return fly.post(`${baseURL}/api.php/CreditPage/getcontent?test=4`).then(res => res.data);
   };
   //统计立即购买creditid&bankid
   export const getUserOpenid = params => {
-    return fly.post(`${baseURL}/api.php/msg/getwxcode?code=${params}`).then(res => res.data);
+    return fly.post(`${baseURL}/api.php/msg/getwxcode_dashen?code=${params}`).then(res => res.data);
   };
 
   // 点击 开 激活任务
@@ -250,14 +250,8 @@ export const getTopicSelect = params => {
     // console.log('点击开激活任务参数',params)
     return fly.post(`${baseURL}/api.php/userwx/starttask`,  Qs.stringify(params)).then(res => res.data);
   };
-  // function urlencode (str) {  
-  //   str = (str + '').toString();   
-  //   return encodeURIComponent(str).replace(/!/g, '%21').replace(/'/g, '%27').replace(/\(/g, '%28').  
-  //   replace(/\)/g, '%29').replace(/\*/g, '%2A').replace(/%20/g, '+');  
-  // } 
   // 小程序用户信息上传
-  export const postUserInfo = params => {
-    
+  export const postUserInfo = params => {  
     console.log('上传信息参数',params)
     return fly.post(`${baseURL}/api.php/userwx/savewxuserinfo`, Qs.stringify(params)).then(res => res.data);
   };  
@@ -290,6 +284,11 @@ export const getTopicSelect = params => {
   export const getMore = params => {
     // console.log('获取任务进度参数',params)
     return fly.post(`${baseURL}/api.php/userwx/getmorefriend`, Qs.stringify(params)).then(res => res.data);
+  };
+  // 获取用户二维码
+  export const getQRcode = params => {
+    // console.log('获取任务进度参数',params)
+    return fly.post(`https://main.pcuion.com/api.php/userwx/create_qrcode`, Qs.stringify(params)).then(res => res.data);
   };
   // function urlencode (str) {  
   //   str = (str + '').toString();   

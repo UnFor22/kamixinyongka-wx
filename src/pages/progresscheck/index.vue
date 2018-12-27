@@ -64,15 +64,16 @@
     //页面设置转发功能
     onShareAppMessage: function (res) {
       return {
-        title: `信用卡还没下?，着急没用，点击查看进度`,
+        title: `还没下?，着急没用，点击查看进度`,
         imageUrl: 'http://download.pcuion.com/app2_0/jindu3.png',
         path: '/pages/index/index'
       }
     },
     created () {
 
-      //加载银行列表进度数据
+      //加行列表进度数据
       getProgress().then(data => {
+        // console.log(data)
         if(data.result.code == 10000){
           this.pageList = data.data;
         }else {

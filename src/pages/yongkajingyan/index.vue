@@ -1,211 +1,150 @@
 <template>
   <div>
-    <div class="cardraiders">
-      <div class="header">
-        <img src="http://ioskamidownload.oss-cn-qingdao.aliyuncs.com/yangkabeijing%402x.9d34970.png" mode="widthFix" alt="">
-      </div>
-
-      <div class="articleList">
-	  
-	          <!--科普 | 信用卡到底有什么用？-->
-        <div @click="tocardraidersdetails('科普 | 信用卡到底有什么用？',11)">
-          <div class="content">
-            <div class="content_left">
-              <p>科普 | 信用卡到底有什么用？</p>
-              <p>想象一下，看上一款尼康相机，但手里没有钱买。于是，你开始拼命存钱，等终于存够了钱，这款相机停产了
-
-</p>
-              <span>2018-06-08</span>
-              <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 7462</span>
-            </div>
-            <div class="content_right">
-              <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3879099796,3374544206&fm=26&gp=0.jpg" mode="widthFix" alt="">
+    <div>
+      <div class="cardraiders">
+        <div class="header">
+          <!-- <img src="http://ioskamidownload.oss-cn-qingdao.aliyuncs.com/yangkabeijing%402x.9d34970.png" mode="widthFix" alt=""> -->
+          <img src="https://ioskamidownload.oss-cn-qingdao.aliyuncs.com/miniprogram/jy.png"  mode="widthFix" alt="">
+        </div>
+        <div class="articleList">
+	 
+          <div @click="tocardraidersdetails('“爱购全球”境外畅购折扣享不停 返现高达16%',14)">
+            <div class="content">
+              <div class="content_left">
+                <p>“爱购全球”境外畅购折扣享不停 返现高达16%</p>
+                <p>活动时间：北京时间2018年10月1日至2018年12月31日</p>
+                <span>2018-06-08</span>
+                <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 3530</span>
+              </div>
+              <!-- <div class="content_right">
+                <img src="http://image.sudaizhijia.com/production/20170920/bank/20170920151057-269.png" mode="widthFix" alt="">
+              </div> -->
             </div>
           </div>
-        </div>
-		
-	          <!--科普 | 什么样的卡是一张"好卡"？-->
-        <div @click="tocardraidersdetails('什么样的卡是一张“好卡”？',12)">
-          <div class="content">
-            <div class="content_left">
-              <p>什么样的卡是一张"好卡"？</p>
-              <p>对于不同的人来说，好卡的标准是不一样的。通常没有十全十美的情况，纠结于找一张完美的卡的结果很可能是犹豫不决最后..</p>
-              <span>2018-06-08</span>
-              <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 7462</span>
-            </div>
-            <div class="content_right">
-              <img src="https://mmbiz.qpic.cn/mmbiz_jpg/5zmuhB1W64buIRHvQgwsU6YVjicm7WaLLMV8JQF1KeLg6Xx5hZibNE2fQ3TU3eiaM4AtxngBawprMZnWlMYcfAIPA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" mode="widthFix" alt="">
-            </div>
-          </div>
-        </div>
-		
-		
-		
-					  
-	          <!-- 银行下0额度信用卡，该不该愤而销卡？ -->
-        <div @click="tocardraidersdetails('银行下0额度信用卡，该不该愤而销卡？',13)">
-          <div class="content">
-            <div class="content_left">
-              <p>银行下0额度信用卡，该不该愤而销卡？</p>
-              <p>有些小伙伴会有这样的经历：自己申请了个工行信用卡，本以为怎么也能下个几千额度，结果.</p>
-              <span>2018-06-08</span>
-              <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 7462</span>
-            </div>
-            <div class="content_right">
-              <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1879652293,3757964995&fm=26&gp=0.jpg" mode="widthFix" alt="">
-            </div>
-          </div>
-        </div>
-		
-		
-		
 
-        <!--交通-->
-        <div @click="tocardraidersdetails(jt_title,1)">
-          <div class="content">
-            <div class="content_left">
-              <p>交通银行信用卡养卡攻略</p>
-              <p>1.  金额数量尽量多，半年内消费总金额至少在额度30% 以上；</p>
-              <span>2018-06-08</span>
-              <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 3530</span>
-            </div>
-            <div class="content_right">
-              <img src="http://image.sudaizhijia.com/production/20170920/bank/20170920151057-269.png" mode="widthFix" alt="">
-            </div>
-          </div>
-        </div>
-
-        <!--建设-->
-        <div  @click="tocardraidersdetails(js_title,2)">
-          <div class="content">
-            <div class="content_left">
-              <p>建设银行信用卡养卡技巧</p>
-              <p>1、 经常刷卡消费，次数越多越好，最好每个月刷完差不多所有额度。</p>
-              <span>2018-06-08</span>
-              <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 6680</span>
-            </div>
-            <div class="content_right">
-              <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1530103741&di=f9639e4e2b06ca0eedd9d4680fd99b32&src=http://imgsrc.baidu.com/forum/pic/item/7e3e6709c93d70cf4f46d499f8dcd100bba12be1.jpg" mode="widthFix" alt="">
+          <div  @click="tocardraidersdetails('降额是什么原因 信用卡被降额补救办法',15)">
+            <div class="content">
+              <div class="content_left">
+                <p>降额是什么原因 信用卡被降额补救办法</p>
+                <p>我们在日常使用信用卡的时候，经常会遇到信用卡降低额度情况，</p>
+                <span>2018-06-08</span>
+                <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 6680</span>
+              </div>
+              <!-- <div class="content_right">
+                <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1530103741&di=f9639e4e2b06ca0eedd9d4680fd99b32&src=http://imgsrc.baidu.com/forum/pic/item/7e3e6709c93d70cf4f46d499f8dcd100bba12be1.jpg" mode="widthFix" alt="">
+              </div> -->
             </div>
           </div>
-        </div>
 
-        <!--工商-->
-        <div @click="tocardraidersdetails(gs_title,3)">
-          <div class="content">
-            <div class="content_left">
-              <p>工商银行-养卡攻略</p>
-              <p>1. 多笔消费，比例25/2/1 25笔500元以下，2笔5000 左右，1笔达总卡额度百分之70。（额度太小或者额度较大具体对待）</p>
-              <span>2018-06-08</span>
-              <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 4846</span>
-            </div>
-            <div class="content_right">
-              <img src="http://image.sudaizhijia.com/production/20171012/bank/20171012201435-573.png" mode="widthFix" alt="">
+          <div @click="tocardraidersdetails('招商首刷礼怎么领 招商信用卡首刷礼技巧',16)">
+            <div class="content">
+              <div class="content_left">
+                <p>招商首刷礼怎么领 招商信用卡首刷礼技巧</p>
+                <p>招商银行作为四大银行之一，目前申请人数也越来越多，尽管如此</p>
+                <span>2018-06-08</span>
+                <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 4846</span>
+              </div>
+              <!-- <div class="content_right">
+                <img src="http://image.sudaizhijia.com/production/20171012/bank/20171012201435-573.png" mode="widthFix" alt="">
+              </div> -->
             </div>
           </div>
-        </div>
 
-        <!--农-->
-        <div @click="tocardraidersdetails(ny_title,4)">
-          <div class="content">
-            <div class="content_left">
-              <p>农业银行养卡攻略</p>
-              <p>由于某些历史原因，农行申卡成功率低，额度普遍偏低，而且提额很难，这已经成为卡右的一大共识。好多卡友咨询如何才能提高农行信用卡的额度，今天给大家分享下农行提额的最实用的几个技巧：</p>
-              <span>2018-06-08</span>
-              <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 5721</span>
-            </div>
-            <div class="content_right">
-              <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530113879491&di=5d05f10bd9592aafbb385086f3c39d36&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fdesign%2F00%2F07%2F85%2F23%2F59316ca9789ee.png" mode="widthFix" alt="">
+          <div @click="tocardraidersdetails('哪家信用卡首刷礼好 各大银行信用卡首刷礼',17)">
+            <div class="content">
+              <div class="content_left">
+                <p>哪家信用卡首刷礼好 各大银行信用卡首刷礼</p>
+                <p>不少银行都会通过丰富的首刷礼来吸引大家的视线，以及获得更多的客户，那么哪家信用卡首刷礼好？</p>
+                <span>2018-06-08</span>
+                <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 5721</span>
+              </div>
+              <!-- <div class="content_right">
+                <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530113879491&di=5d05f10bd9592aafbb385086f3c39d36&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fdesign%2F00%2F07%2F85%2F23%2F59316ca9789ee.png" mode="widthFix" alt="">
+              </div> -->
             </div>
           </div>
-        </div>
 
-        <!--光大-->
-        <div @click="tocardraidersdetails(gd_title,5)">
-          <div class="content">
-            <div class="content_left">
-              <p>光大银行养卡技巧</p>
-              <p>所谓养卡，就是通过一些"技术手段" ，把信用卡额度提上去。一般来说，初始额度1万的信用卡养到5万的额度就自然〃毕业""了。如果手中有几张额度5万元的信用卡，总额 度也能达到几十万。那么，如何正确地养卡提额呢？下面， 就跟大家分享一些养卡的技巧。</p>
-              <span>2018-06-08</span>
-              <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 5541</span>
-            </div>
-            <div class="content_right">
-              <img src="http://image.sudaizhijia.com/production/20170920/bank/20170920151123-331.png" mode="widthFix" alt="">
+          <div @click="tocardraidersdetails('办理分期划算吗 信用卡怎样还款最划算',18)">
+            <div class="content">
+              <div class="content_left">
+                <p>办理分期划算吗 信用卡怎样还款最划算</p>
+                <p>看上去很划算，但分期消费究竟是不是真划算呢？</p>
+                <span>2018-06-08</span>
+                <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 5541</span>
+              </div>
+              <!-- <div class="content_right">
+                <img src="http://image.sudaizhijia.com/production/20170920/bank/20170920151123-331.png" mode="widthFix" alt="">
+              </div> -->
             </div>
           </div>
-        </div>
 
-        <!--广发-->
-        <div @click="tocardraidersdetails(gf_title,6)">
-          <div class="content">
-            <div class="content_left">
-              <p>广发银行养卡技巧</p>
-              <p>以卡养卡，就是A卡消费后，从B卡种来获得现金来还A 卡，等到B卡要还款了，再从A卡获得现金来还B卡，如此循环。信用卡以卡养卡，看起来似乎很简单，但是要注意的地方也还是不少，所以想要卡养得好，就得掌握一些养卡技巧。</p>
-              <span>2018-06-08</span>
-              <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 3096</span>
-            </div>
-            <div class="content_right">
-              <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530113917489&di=34b853bae2e32f903e336b34020d24db&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fdesign%2F00%2F07%2F85%2F23%2F59316cbf452df.png" mode="widthFix" alt="">
+          <div @click="tocardraidersdetails('不还款会怎么样 信用卡不还款的后果',19)">
+            <div class="content">
+              <div class="content_left">
+                <p>不还款会怎么样 信用卡不还款的后果</p>
+                <p>在那些吃土的岁月，你是否也曾想过不还信用卡，一走了之！别闹了，那受伤的只有你自己！</p>
+                <span>2018-06-08</span>
+                <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 3096</span>
+              </div>
+              <!-- <div class="content_right">
+                <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530113917489&di=34b853bae2e32f903e336b34020d24db&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fdesign%2F00%2F07%2F85%2F23%2F59316cbf452df.png" mode="widthFix" alt="">
+              </div> -->
             </div>
           </div>
-        </div>
 
-        <!--中国-->
-        <div @click="tocardraidersdetails(zg_title,7)">
-          <div class="content">
-            <div class="content_left">
-              <p>中国银行提额方法</p>
-              <p>信用卡申请之初，持卡人的信用额度都不是很高的，很多人一张卡用了很久还是初始的倍用额度。实际上呢，信用额度是可以提高的，随着收入、资产条件的提高，完全可以提高信用卡额度，以下八种方式助你成功信用卡提额。</p>
-              <span>2018-06-08</span>
-              <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 11562</span>
-            </div>
-            <div class="content_right">
-              <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530113946255&di=934a7aeb4e34dafb00b70b7fb004927f&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F8326cffc1e178a82e50ad11afd03738da977e852.jpg" mode="widthFix" alt="">
+          <div @click="tocardraidersdetails('第一次刷多少好 信用卡首刷注意什么',20)">
+            <div class="content">
+              <div class="content_left">
+                <p>第一次刷多少好 信用卡首刷注意什么</p>
+                <p>在进行信用卡首刷的时候需要注意什么？以及信用卡第一次刷多少好？</p>
+                <span>2018-06-08</span>
+                <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 11562</span>
+              </div>
+              <!-- <div class="content_right">
+                <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530113946255&di=934a7aeb4e34dafb00b70b7fb004927f&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F8326cffc1e178a82e50ad11afd03738da977e852.jpg" mode="widthFix" alt="">
+              </div> -->
             </div>
           </div>
-        </div>
 
-        <!--兴业-->
-        <div @click="tocardraidersdetails(xy_title,8)">
-          <div class="content">
-            <div class="content_left">
-              <p>兴业银行信用卡养卡技巧</p>
-              <p>刷好第一笔，多元化消费，真实消费，少套。按时还兴业银行的卡片要多点真实消费，少用鸡，养卡开商户15-20户左右， 一个月能有10到20笔之间，多刷优质商户。这个优质商户的定义包括银行特约商户和高端知名商户</p>
-              <span>2018-06-08</span>
-              <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 5569</span>
-            </div>
-            <div class="content_right">
-              <img src="http://image.sudaizhijia.com/production/20170920/bank/20170920151004-923.png" mode="widthFix" alt="">
+          <div @click="tocardraidersdetails('建行怎么提升永久额度 建行信用卡额度提升最快方法',21)">
+            <div class="content">
+              <div class="content_left">
+                <p>建行怎么提升永久额度 建行信用卡额度提升最快方法</p>
+                <p>额度也是一些朋友炫耀的资本。因为只有信誉好银行判定，有固定资产才能有大额信用卡。那么建行怎么提升永久额度？</p>
+                <span>2018-06-08</span>
+                <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 5569</span>
+              </div>
+              <!-- <div class="content_right">
+                <img src="http://image.sudaizhijia.com/production/20170920/bank/20170920151004-923.png" mode="widthFix" alt="">
+              </div> -->
             </div>
           </div>
-        </div>
 
-        <!--民生-->
-        <div @click="tocardraidersdetails(ms_title,9)">
-          <div class="content">
-            <div class="content_left">
-              <p>民生银行信用卡提额攻略</p>
-              <p>首次申请提高额度需要使用信用卡满半年以上，保持良好的还款记录，方可申请。首次提额后需要过了6个月以后才可再次申请。对成功提额有帮助的消费方式有：</p>
-              <span>2018-06-08</span>
-              <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 7462</span>
-            </div>
-            <div class="content_right">
-              <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530113977790&di=713e4c302531ff87b4783dcdfade2120&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fdesign%2F00%2F07%2F85%2F23%2F59316cc45bac5.png" mode="widthFix" alt="">
+          <div @click="tocardraidersdetails('信用卡几天不还算逾期 信用卡多长时间算逾期',22)">
+            <div class="content">
+              <div class="content_left">
+                <p>信用卡几天不还算逾期 信用卡多长时间算逾期</p>
+                <p>有了信用卡后，就必须正视还款问题，因为一旦出现逾期，面临的是高额罚息和不良征信记录，以后车贷、房贷等都不能办理。</p>
+                <span>2018-06-08</span>
+                <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 7462</span>
+              </div>
+              <!-- <div class="content_right">
+                <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530113977790&di=713e4c302531ff87b4783dcdfade2120&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fdesign%2F00%2F07%2F85%2F23%2F59316cc45bac5.png" mode="widthFix" alt="">
+              </div> -->
             </div>
           </div>
-        </div>
 
-        <!--华夏-->
-        <div @click="tocardraidersdetails(hx_title,10)">
-          <div class="content">
-            <div class="content_left">
-              <p>华夏银行养卡</p>
-              <p>信用卡养卡，就是有技巧地刷卡，积累良好的刷卡记录，并遵循银行信用卡提额的规则，逐渐提升信用卡额度的过程。信用卡刷卡养卡的目的是为了提升信用卡额度，把低额度信用卡变成大额信用卡，这样持卡人可使用的信用资金就多了，能够满足持卡人资金周转的需求。那么信用卡养卡有哪些技巧呢？</p>
-              <span>2018-06-08</span>
-              <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 9845</span>
-            </div>
-            <div class="content_right">
-              <img src="http://image.sudaizhijia.com/production/20171229/bank/20171229171255-146.png" mode="widthFix" alt="">
+          <div @click="tocardraidersdetails('怎么提额度最快 信用卡提额度最快方法',23)">
+            <div class="content">
+              <div class="content_left">
+                <p>怎么提额度最快 信用卡提额度最快方法</p>
+                <p>怎么提额度最快？对于很多没有急需求的人来说，大多数人都会通过“养卡”的形式进行提额，</p>
+                <span>2018-06-08</span>
+                <span><img style="width:30rpx;" src="../../assets/liulan@2x.png" mode="widthFix" alt=""> 9845</span>
+              </div>
+              <!-- <div class="content_right">
+                <img src="http://image.sudaizhijia.com/production/20171229/bank/20171229171255-146.png" mode="widthFix" alt="">
+              </div> -->
             </div>
           </div>
         </div>
@@ -253,7 +192,7 @@
         '销卡威胁式提额：持卡人可以致电银行客服申请提升额 度，如果不提额就销卡，这种方法比较偏激，但有时候会有效果。此方法慎用，一旦注销，日后要再申请就难了！\n' +
         '临时提额式提额：近期正值节日期间，旅游、购物等需要用钱的地方非常多，持卡人可以申请提升临时额度，交通银行一般都会审批，并且多申请几次临时提额，银行会认为持卡人对信用卡需求大，提升固定额度也不是难事\n' +
         '1、打电话注销卡片，客服会和你说是优质客户，会在5天左右时间有专人联系你，然后过一两天，你去查额度，就会发现额度有所提高了。\n' +
-        '2、冷冻你的信用卡，一般半年或者一年，额度自然增加。另外，获得白金信用卡办卡邀请的方法是冷冻你的信用卡一段时间后，直接去境外消费下，消费1-2万人民币即可，不需要等太久，你会收到办卡短信。',
+        '2、冷冻你的信用卡，一般半年或者一年，额度自然增加。另外，获得白金信用卡邀请的方法是冷冻你的信用卡一段时间后，直接去境外消费下，消费1-2万人民币即可，不需要等太久，你会收到短信。',
 
         //建设
         js_title: '建设银行提额攻略',
@@ -603,7 +542,7 @@
       padding: 50rpx;
       background: #fff;
       .content_left{
-        width: 60%;
+        width: 100%;
         p:nth-of-type(1){
           color: #363636;
           font-size: 16px;
@@ -628,7 +567,8 @@
         }
           
         span:nth-of-type(2){
-            margin-left: 100rpx;
+          float: right;
+            margin-right: 30rpx;
           /*font-family pingFangSC-Medium*/
         }
           

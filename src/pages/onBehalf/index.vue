@@ -20,14 +20,14 @@
               </div>
               
               <div class="topBtn">
-                <span>立即申请</span> 
+                <span>立即查看</span> 
               </div>         
             </div>
 
             <div class="bottomBox">
               <div style="text-align: left;">
                 <p style="color: #FF6147;margin-bottom: 20rpx;">{{item.minmoney}}-{{item.maxmoney}}</p>
-                <p style="color: #9a9a9a; font-size: 12px;">额度范围</p>
+                <p style="color: #9a9a9a; font-size: 12px;">范围</p>
               </div>
               <div>
                 <div v-for='(itemTips, i) in rates[index]' :key="i" >
@@ -36,7 +36,7 @@
               </div>
               <div style="text-align: right;">
                 <p style="margin-bottom: 20rpx">{{item.minday}}-{{item.maxday}}<span style="font-size: 12px;"></span></p>
-                <p style="color: #9a9a9a; font-size: 12px;">期限</p>
+                <p style="color: #9a9a9a; font-size: 12px;">时间</p>
               </div>
             </div>
             
@@ -67,27 +67,27 @@ export default {
       },
       pageList: [],
       urlList: [],
-      lilvs:[], // 日/月利率未处理
-      rates:[],  // 日/月利率
+      lilvs:[], // 日/月lilv未处理
+      rates:[],  // 日/月lilv
       bottomAllLoaded: false, //是否可以上拉属性，false可以上拉，true为禁止上拉，就是不让往上划加载数据了
       // scrollMode: "auto", //移动端弹性滚动效果，touch为弹性滚动，auto是非弹性滚动
       wrapperHeight: 0,
       bottomText: '上拉加载更多',
       bottomDropText: '释放更新',
-      onbehalfsource:'',     //0:办卡页面跳转代还-立即申请非原生跳转
-      isKami:'',          //1:卡秘App-办卡页面-代还-一键导入-账单 0:非卡秘App-办卡页面-代还-一键导入-注册下载页
+      onbehalfsource:'',     //0:bank页面跳转daih-立即Shenq非原生跳转
+      isKami:'',          //1:App-bank页面-daih-一键导入-账单 0:非App-页面-daih-一键导入-注册下载页
       urlUtm:'',
     }
   },
 
   onLoad() {
-    //加载热门贷款金额详情页时所需数据
+    //加载热门daikuan jine详情页时所需数据
     this.dropPageList();
   },
   //页面设置转发功能
     onShareAppMessage: function (res) {
       return {
-        title: `轻轻松松下了张5万的白金卡，你也来试试？`,
+        title: `轻轻松松下了张5万的白金，你也来试试？`,
         imageUrl: 'http://download.pcuion.com/app2_0/lijiban.png',
         path: '/pages/index/index'
       }
@@ -112,7 +112,7 @@ export default {
         if(data.result.code == 10000){
           this.pageList = data.data;
           // console.log(this.pageList)
-          // 为日/月利率赋值
+          // 为日/月lilv赋值
           this.isLoading = false
           for(let i=0;i<this.pageList.length;i++){
             this.lilvs.push(data.data[i].lilv) 

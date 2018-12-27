@@ -1,5 +1,6 @@
 {
   "pages": [
+    
     "pages/index/main",
     "pages/hotDetails/main",
     "pages/onBehalf/main",
@@ -14,13 +15,15 @@
     "pages/filtercard/main",
     "pages/politecard/main",
     "pages/downloadApp/main",
-    "pages/jiakefu/main",
     "pages/zhulixiangqing/main",
-    "pages/activeshuoming/main"
+    "pages/activeshuoming/main",
+    "pages/yanjiuwanka/main",
+    "pages/yongkajingyan/main",
+    "pages/neirong/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#7370FF",
+    "navigationBarBackgroundColor": "#ff4a2a",
     "navigationBarTitleText": "大神玩卡",
     "navigationBarTextStyle": "#fff",
     "onReachBottomDistance": 50

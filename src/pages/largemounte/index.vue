@@ -19,10 +19,10 @@
                 </section>
             </div> 
             <div class="cardNum" style="font-size:12px; margin-top:20rpx;">
-              <span><span style="color:#ff5b3d">{{firstData.cardcount}}</span>人申请</span>
+              <span><span style="color:#ff5b3d">{{firstData.cardcount}}</span>人拥有</span>
             </div> 
             <div class="button" @click="tokefu(firstData.creditname,firstData.crediturl)">             
-              <a style="color: #fff; font-size: 15px">立即申请</a>
+              <a style="color: #fff; font-size: 15px">立即查看</a>
             </div>
           </div>
 
@@ -33,7 +33,7 @@
                 <img  src="../../assets/huangguan@2x.png" alt="">
                 <img style="border-radius: 5px" class="otherCardBox_img" :src=item.creditphotourl alt="" mode="widthFix">
                 <div class="cardNum" style="font-size:12px; margin-top:20rpx;">
-                  <span><span style="color:#ff5b3d">{{item.cardcount}}</span>人申请</span>
+                  <span><span style="color:#ff5b3d">{{item.cardcount}}</span>人拥有</span>
                 </div> 
               </div>
               <div>
@@ -41,7 +41,7 @@
                 <section v-for="(itemTips, i) in cardTips[index+1]" :key="i">
                   <span>{{itemTips}}</span>
                 </section>
-                <div class="button" @click="tokefu(item.creditname,item.crediturl)"><a>立即申请</a></div>
+                <div class="button" @click="tokefu(item.creditname,item.crediturl)"><a>立即查看</a></div>
               </div>
             </div>
           </div>
@@ -60,10 +60,10 @@
       return {
         //分页属性
         filterSearch: {
-          bid: 0,		  //银行ID 如果选择全部银行就传0
-          yp: '0',		  //信用卡年费，如果选择全部年费就传0
-          level: '0', 	//信用卡级别，如果选择全部级别就传0
-          type: 1,		//{label: '大额度', value: 1},{label: '新手办卡', value: 2},{label: '审批快', value: 3},{label: '办卡有礼', value: 4},
+          bid: 0,		  //ID 如果选择全部就传0
+          yp: '0',		  //，如果选择全部就传0
+          level: '0', 	//，如果选择全部级别就传0
+          type: 1,		//{label: '度', value: 1},{label: '新手', value: 2},{label: '批快', value: 3},{label: '有礼', value: 4},
           page: 0,		//当前页数，默认传1,每页显示10条，接口默认返回20条
           token: 0, 	//校验值，校验规则参数拼接: “bid+yp+level+type+page+kami@2018”进行两次MD5
           creditid:'',
@@ -79,19 +79,19 @@
         hrefUrl: '',
         isLoading: true,
         screenHeight: '', //当前设备高度
-        cardTips:[], //热门信用卡小标签
-        credittips:[], //热门信用卡小便签未处理
+        cardTips:[], //热门小标签
+        credittips:[], //热门小便签未处理
         regList:{
               mob:'', //手机号、
               chan:'', //渠道号、
-              cid:'', //信用卡ID、
-              cname:'', //信用卡名称、
+              cid:'', //ID、
+              cname:'', //名称、
         },
         operationList:{   //记录用户操作接口列表
-            type:3,                 //办卡点击(h5),
+            type:3,                 //点击(h5),
             mobile:'',                 //手机号、
             channelSign:'',         //渠道号、渠道标识(H5)
-            typeId:'',              //相应操作数据id（对应数据的id不存在时可以不传）==>信用卡ID
+            typeId:'',              //相应操作数据id（对应数据的id不存在时可以不传）==>ID
             address:'',	            //链接地址（app不需要；H5需要）
         },
         query:{}
@@ -110,7 +110,7 @@
     // mounted() {
     //   //动态计算页面高度
     //   this.wrapperHeight = document.documentElement.clientHeight - this.$refs.wrapper.getBoundingClientRect().top;
-    //   //加载热门信用卡时所需数据
+    //   //加载时所需数据
     //   this.loadPageList();
         
     // },
@@ -120,7 +120,7 @@
     //页面设置转发功能
     onShareAppMessage: function (res) {
       return {
-        title: `办信用卡，我们是认真的！`,
+        title: `论效率，我们是最快的！`,
         imageUrl: 'http://download.pcuion.com/app2_0/eduda.png',
         path: '/pages/index/index'
       }
@@ -139,7 +139,7 @@
             //将获取到的数据添加到定义的pageList中
             this.pageList = this.pageList.concat(data.data);
             
-            // 为信用卡的tips赋值
+            // 为 的tips赋值
             for(let i=0;i<this.pageList.length;i++){
               this.credittips.push(data.data[i].credittips) 
               this.cardTips.push(this.credittips[i].split(','))
